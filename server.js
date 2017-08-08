@@ -5,7 +5,7 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 
 // Require Schemas
-var User = require("./models/user");
+var User = require("./src/models/user.js");
 
 // Create Instance of Express
 var app = express();
@@ -32,6 +32,54 @@ db.on("error", function(err) {
 
 db.once("open", function() {
   console.log("Mongoose connection successful.");
+});
+
+// -------------------------------------------------
+
+// Route to get all saved articles
+app.get("/api/saved", function(req, res) {
+
+  User.find({})
+    .exec(function(err, doc) {
+
+      if (err) {
+        console.log(err);
+      }
+      else {
+        res.send(doc);
+      }
+    });
+});
+
+// Route to add an article to saved list
+app.post("/api/saved", function(req, res) {
+  var newUser = new User(req.body);
+
+  console.log(req.body);
+
+  newUser.save(function(err, doc) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.send(doc);
+    }
+  });
+});
+
+// Route to delete an article from saved list
+app.delete("/api/saved/", function(req, res) {
+
+  var url = req.param("url");
+
+  User.find({ url: url }).remove().exec(function(err) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.send("Deleted");
+    }
+  });
 });
 
 
