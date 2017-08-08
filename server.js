@@ -34,53 +34,56 @@ db.once("open", function() {
   console.log("Mongoose connection successful.");
 });
 
+app.get('/', function(request, response) {
+  response.render('index');
+});
 // -------------------------------------------------
 
 // Route to get all saved articles
-app.get("/api/saved", function(req, res) {
+// app.get("/api/saved", function(req, res) {
 
-  User.find({})
-    .exec(function(err, doc) {
+//   User.find({})
+//     .exec(function(err, doc) {
 
-      if (err) {
-        console.log(err);
-      }
-      else {
-        res.send(doc);
-      }
-    });
-});
+//       if (err) {
+//         console.log(err);
+//       }
+//       else {
+//         res.send(doc);
+//       }
+//     });
+// });
 
-// Route to add an article to saved list
-app.post("/api/saved", function(req, res) {
-  var newUser = new User(req.body);
+// // Route to add an article to saved list
+// app.post("/api/saved", function(req, res) {
+//   var newUser = new User(req.body);
 
-  console.log(req.body);
+//   console.log(req.body);
 
-  newUser.save(function(err, doc) {
-    if (err) {
-      console.log(err);
-    }
-    else {
-      res.send(doc);
-    }
-  });
-});
+//   newUser.save(function(err, doc) {
+//     if (err) {
+//       console.log(err);
+//     }
+//     else {
+//       res.send(doc);
+//     }
+//   });
+// });
 
-// Route to delete an article from saved list
-app.delete("/api/saved/", function(req, res) {
+// // Route to delete an article from saved list
+// app.delete("/api/saved/", function(req, res) {
 
-  var url = req.param("url");
+//   var url = req.param("url");
 
-  User.find({ url: url }).remove().exec(function(err) {
-    if (err) {
-      console.log(err);
-    }
-    else {
-      res.send("Deleted");
-    }
-  });
-});
+//   User.find({ url: url }).remove().exec(function(err) {
+//     if (err) {
+//       console.log(err);
+//     }
+//     else {
+//       res.send("Deleted");
+//     }
+//   });
+// });
 
 
 app.listen(PORT, function() {
