@@ -4,6 +4,7 @@ import Parent from './components/Parent.js';
 import logo from './images/gamerrtag-logo.png';
 import GTag from './components/GTag.js';
 import UserName from './components/UserName.js';
+import Form from './Form.js';
 
 const App = () => {
   return (
@@ -23,7 +24,7 @@ const App = () => {
 					<GTag />
 				</div>
 			</div>
-				<Parent />
+				<Form />
   			</div>
   		</div>);
 };
