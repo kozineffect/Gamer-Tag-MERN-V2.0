@@ -3,6 +3,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
+var mongo_login = require("./private/login.js");
 
 // Require Schemas
 var User = require("./src/models/user.js");
@@ -21,9 +22,8 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 app.use(express.static("./public"));
 
 // -------------------------------------------------
-
 // MongoDB Configuration configuration
-mongoose.connect("mongodb://localhost:27017/GamerTag");
+mongoose.connect(mongo_login);
 var db = mongoose.connection;
 
 db.on("error", function(err) {

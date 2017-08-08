@@ -1,0 +1,6 @@
+{
+  "name": "GamerTag",
+  "description": "THe MERN Stack version of GamerTag",
+  "repository": "https://github.com/kozineffect/Gamer-Tag-MERN-V2.0.git",
+  "keywords": ["node", "express", "heroku", "react", "MongoDB"]
+}
