@@ -10,21 +10,20 @@ class App extends Component {
   			<div className="App">
   				<div className="App-header jumbotron">
   					<ul className="nav navbar-nav navbar-right">
-                  		<li><Link to="/signup">Sign Up</Link></li>
                 	</ul>
-					  <span id="menu-dropdown" className="glyphicon glyphicon-menu-hamburger navbar-left"></span>
-  					<img id="gtLogo" src={logo} alt="gamertag-logo"/>
+					  <ul id="menu-dropdown" className="navbar-left dropdown">
+        					<a className="glyphicon glyphicon-menu-hamburger dropdown-toggle" data-toggle="dropdown">
+        						<span className="caret"></span></a>
+        							<ul className="dropdown-menu">
+										  <li><Link to="/signup">Sign Up</Link></li>
+										  <li><Link to="/loser">Loser</Link></li>
+        							</ul>
+      						</ul>
+					
+					
+					  <img id="gtLogo" src={logo} alt="gamertag-logo"/>
   				</div>
-  				<div>
-  					<div id="profile-cont" className="tagged">
-						<div className="row">
-							<UserName />
-						</div>
-						<div className="row">
-							<div className="col-xs-6"></div>
-							<GTag />
-						</div>
-					</div>
+  				<div>	
 						{this.props.children}
   				</div>
 			</div>
