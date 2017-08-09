@@ -34,9 +34,9 @@ db.once("open", function() {
   console.log("Mongoose connection successful.");
 });
 
-app.get('/', function(request, response) {
-  response.render('index');
-});
+// app.get('/', function(request, response) {
+//   response.render('index');
+// });
 // -------------------------------------------------
 
 // Route to get all saved articles
@@ -85,6 +85,10 @@ app.get('/', function(request, response) {
 //   });
 // });
 
+// Any non API GET routes will be directed to our React App and handled by React Router
+app.get("*", function(req, res) {
+  res.sendFile(__dirname + "/public/index.html");
+});
 
 app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);

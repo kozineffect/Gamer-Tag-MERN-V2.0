@@ -1,32 +1,36 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
-import Parent from './components/Parent.js';
 import logo from './images/gamerrtag-logo.png';
 import GTag from './components/GTag.js';
 import UserName from './components/UserName.js';
-import Form from './Form.js';
+var Link = require("react-router").Link;
 
-const App = () => {
-  return (
-  	<div className="App">
-  		<div className="App-header jumbotron">
-  			
-  			<span id="menu-dropdown" className="glyphicon glyphicon-menu-hamburger navbar-left"></span>
-  			<img id="gtLogo" src={logo} alt="gamertag-logo"/>
-  		</div>
-  		<div>
-  			<div id="profile-cont" className="tagged">
-				<div className="row">
-					<UserName />
-				</div>
-				<div className="row">
-					<div className="col-xs-6"></div>
-					<GTag />
-				</div>
+class App extends Component {
+	render(){
+  		return (
+  			<div className="App">
+  				<div className="App-header jumbotron">
+  					<ul className="nav navbar-nav navbar-right">
+                  		<li><Link to="/signup">Sign Up</Link></li>
+                	</ul>
+					  <span id="menu-dropdown" className="glyphicon glyphicon-menu-hamburger navbar-left"></span>
+  					<img id="gtLogo" src={logo} alt="gamertag-logo"/>
+  				</div>
+  				<div>
+  					<div id="profile-cont" className="tagged">
+						<div className="row">
+							<UserName />
+						</div>
+						<div className="row">
+							<div className="col-xs-6"></div>
+							<GTag />
+						</div>
+					</div>
+						{this.props.children}
+  				</div>
 			</div>
-				<Form />
-  			</div>
-  		</div>);
+		);
+	}
 };
 
 export default App;
