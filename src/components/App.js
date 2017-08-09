@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
-import logo from './images/gamerrtag-logo.png';
-import GTag from './components/GTag.js';
-import UserName from './components/UserName.js';
+import logo from '../img/gamerrtag-logo.png';
+import GTag from './children/GTag.js';
+import UserName from './children/UserName.js';
 var Link = require("react-router").Link;
 
 class App extends Component {

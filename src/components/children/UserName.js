@@ -1,5 +1,4 @@
 import React from "react";
-import "../App.css";
 
 const UserName = () => {
 	return (<div className="col-xs-12">

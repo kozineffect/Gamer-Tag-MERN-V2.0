@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { Router, Route, Link, browserHistory } from 'react-router'
-import App from '../App'
-import Form from '../Form.js'
+import React, { Component } from 'react';
+import { Router, Route, Link, browserHistory } from 'react-router';
+import App from '../components/App.js';
+import Form from '../components/children/Form.js';
 
 class Routes extends Component{
     render() {

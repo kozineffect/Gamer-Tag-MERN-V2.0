@@ -1,6 +1,5 @@
 import React from "react";
-import "../App.css";
-import avatar from '../images/shadowArcher.jpg';
+import avatar from '../../img/shadowArcher.jpg';
 
 const GTag = () => {
 	return (<div className="col-xs-6">
